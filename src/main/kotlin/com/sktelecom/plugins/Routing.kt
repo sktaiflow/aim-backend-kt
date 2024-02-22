@@ -18,11 +18,13 @@ import kotlinx.serialization.json.Json
 
 @Serializable
 data class AIMResponse(
+    val port: Int,
     @SerialName("base_images") val baseImages: List<BaseImage>,
     val users: List<User>
 )
 
 fun Application.configureRouting() {
+    val port = environment.config.property("ktor.deployment.port").getString().toInt()
     routing {
         install(ContentNegotiation) {
             json(
@@ -33,7 +35,7 @@ fun Application.configureRouting() {
             )
         }
         get("/") {
-            call.respond(AIMResponse(JIBClient.getBaseImages(), dao.users()))
+            call.respond(AIMResponse(port, JIBClient.getBaseImages(), dao.users()))
         }
     }
 }
