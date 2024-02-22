@@ -14,7 +14,10 @@ class UserDAOImpl : UserDAO {
     private fun resultRowToUser(row: ResultRow) =
         User(
             id = row[Users.id],
-            name = row[Users.name]
+            name = row[Users.name],
+            `class` = row[Users.`class`],
+            email = row[Users.email],
+            uidNumber = row[Users.uidNumber]
         )
 
     override suspend fun users(): List<User> =
