@@ -7,7 +7,7 @@ import org.jetbrains.exposed.sql.SchemaUtils
 import org.jetbrains.exposed.sql.transactions.experimental.newSuspendedTransaction
 import org.jetbrains.exposed.sql.transactions.transaction
 
-object DatabaseSingleton {
+object Database {
     fun init() {
         val database =
             Database.connect("jdbc:postgresql://localhost:5431/aim", "org.postgresql.Driver", "aim", "!aim00")
