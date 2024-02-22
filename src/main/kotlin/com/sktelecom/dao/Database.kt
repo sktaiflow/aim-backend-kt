@@ -8,12 +8,14 @@ import org.jetbrains.exposed.sql.transactions.experimental.newSuspendedTransacti
 import org.jetbrains.exposed.sql.transactions.transaction
 
 object Database {
-    fun init() {
-        val database =
-            Database.connect("jdbc:postgresql://localhost:5431/aim", "org.postgresql.Driver", "aim", "!aim00")
-        transaction(database) {
-            SchemaUtils.create(Users)
-        }
+    fun init(
+        url: String,
+        driver: String,
+        user: String,
+        password: String
+    ) {
+        val database = Database.connect(url, driver, user, password)
+        transaction(database) { SchemaUtils.create(Users) }
     }
 
     suspend fun <T> dbQuery(block: suspend () -> T): T = newSuspendedTransaction(Dispatchers.IO) { block() }

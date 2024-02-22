@@ -3,3 +3,9 @@ ktor:
     modules: [ "com.sktelecom.ApplicationKt.module" ]
   deployment:
     port: 8080
+
+database:
+  url: "jdbc:postgresql://localhost:5431/aim"
+  driver: "org.postgresql.Driver"
+  user: "aim"
+  password: "!aim00"
