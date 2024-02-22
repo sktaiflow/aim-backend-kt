@@ -2,4 +2,4 @@ ktor:
   application:
     modules: [ "com.sktelecom.ApplicationKt.module" ]
   deployment:
-    port: 8081
+    port: 8080

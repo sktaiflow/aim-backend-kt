@@ -19,8 +19,7 @@ fun Application.module() {
     Timer().scheduleAtFixedRate(0, 60 * 1000) {
     }
 
-    val port = environment.config.propertyOrNull("ktor.deployment.port")?.getString() ?: "8080"
-    println("AA $port BB")
+    val port = environment.config.property("ktor.deployment.port").getString()
     routing {
         get {
             call.respondText("Listening on port $port")
