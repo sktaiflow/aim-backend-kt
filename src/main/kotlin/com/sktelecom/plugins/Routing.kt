@@ -1,6 +1,6 @@
 package com.sktelecom.plugins
 
-import com.sktelecom.dao.dao
+import com.sktelecom.clients.JIBClient
 import io.ktor.serialization.kotlinx.json.json
 import io.ktor.server.application.Application
 import io.ktor.server.application.call
@@ -22,7 +22,8 @@ fun Application.configureRouting() {
             )
         }
         get("/") {
-            call.respond(dao.users())
+            call.respond(JIBClient.getBaseImages())
+//            call.respond(dao.users())
         }
     }
 }
