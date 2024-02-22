@@ -12,12 +12,13 @@ import io.ktor.server.plugins.contentnegotiation.ContentNegotiation
 import io.ktor.server.response.respond
 import io.ktor.server.routing.get
 import io.ktor.server.routing.routing
+import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import kotlinx.serialization.json.Json
 
 @Serializable
 data class AIMResponse(
-    val baseImages: List<BaseImage>,
+    @SerialName("base_images") val baseImages: List<BaseImage>,
     val users: List<User>
 )
 
