@@ -8,4 +8,4 @@ database:
   url: "jdbc:postgresql://localhost:5431/aim"
   driver: "org.postgresql.Driver"
   user: "aim"
-  password: "!aim00"
+  password: $DB_PASSWORD
