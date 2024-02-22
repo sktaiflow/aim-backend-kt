@@ -18,7 +18,7 @@ fun Application.configureRouting() {
                 Json {
                     prettyPrint = true
                     isLenient = true
-                },
+                }
             )
         }
         get("/") {

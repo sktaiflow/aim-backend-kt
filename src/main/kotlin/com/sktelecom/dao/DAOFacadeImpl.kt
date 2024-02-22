@@ -11,7 +11,7 @@ class DAOFacadeImpl : DAOFacade {
     private fun resultRowToUser(row: ResultRow) =
         User(
             id = row[Users.id],
-            name = row[Users.name],
+            name = row[Users.name]
         )
 
     override suspend fun users(): List<User> =

@@ -17,7 +17,7 @@ data class BaseImage(
     val runtime: String,
     val name: String,
     @SerialName("latest_succeeded_tag") val latestSucceededTag: String,
-    @SerialName("created_at") val createdAt: String,
+    @SerialName("created_at") val createdAt: String
 )
 
 class JIBClient {
