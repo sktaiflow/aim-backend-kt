@@ -20,19 +20,17 @@ data class BaseImage(
     @SerialName("created_at") val createdAt: String
 )
 
-class JIBClient {
-    companion object JIBClient {
-        private val client =
-            HttpClient(CIO) {
-                install(ContentNegotiation) {
-                    json(Json { ignoreUnknownKeys = true })
-                }
+object JIBClient {
+    private val client =
+        HttpClient(CIO) {
+            install(ContentNegotiation) {
+                json(Json { ignoreUnknownKeys = true })
             }
+        }
 
-        fun getBaseImages(): List<BaseImage> {
-            return runBlocking {
-                client.get("https://image-builder-dev.sktai.io/api/jupyter/base-images").body()
-            }
+    fun getBaseImages(): List<BaseImage> {
+        return runBlocking {
+            client.get("https://image-builder-dev.sktai.io/api/jupyter/base-images").body()
         }
     }
 }
